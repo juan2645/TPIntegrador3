@@ -24,7 +24,7 @@ public class Main {
         try {
 
         ///////  Código para borrar las tablas de la base de datos  /////////////////////
-        String url = "jdbc:mysql://localhost:3306/integrador2"; // Cambia esto por la URL de tu base de datos
+        String url = "jdbc:mysql://localhost:3306/integrador3"; // Cambia esto por la URL de tu base de datos
         String usuario = "root"; // Cambia esto por tu nombre de usuario
         String contrasena = ""; // Cambia esto por tu contraseña
 
