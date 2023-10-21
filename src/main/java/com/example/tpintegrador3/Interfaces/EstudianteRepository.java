@@ -1,6 +1,6 @@
 package com.example.tpintegrador3.Interfaces;
 
-import com.example.tpintegrador3.DTO.EstudianteDTO;
+import com.example.tpintegrador3.Service.DTO.EstudianteDTO;
 import com.example.tpintegrador3.Entidades.Estudiante;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.example.tpintegrador3.Repository;
 
-import com.example.tpintegrador3.DTO.Estudiante_CarreraDTO;
+import com.example.tpintegrador3.Service.DTO.Estudiante_CarreraDTO;
 import com.example.tpintegrador3.Entidades.Carrera;
 import com.example.tpintegrador3.Entidades.Estudiante;
 import com.example.tpintegrador3.Entidades.Estudiante_Carrera;

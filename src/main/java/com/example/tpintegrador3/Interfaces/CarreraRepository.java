@@ -1,6 +1,6 @@
 package com.example.tpintegrador3.Interfaces;
 
-import com.example.tpintegrador3.DTO.CarreraDTO;
+import com.example.tpintegrador3.Service.DTO.CarreraDTO;
 import com.example.tpintegrador3.Entidades.Carrera;
 
 import java.util.List;

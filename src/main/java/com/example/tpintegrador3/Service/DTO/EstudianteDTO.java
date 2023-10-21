@@ -1,4 +1,4 @@
-package com.example.tpintegrador3.DTO;
+package com.example.tpintegrador3.Service.DTO;
 
 import java.io.Serializable;
 

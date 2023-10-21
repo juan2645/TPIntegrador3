@@ -1,9 +1,9 @@
 package com.example.tpintegrador3;
 
-import com.example.tpintegrador3.CSV.CSV;
-import com.example.tpintegrador3.DTO.CarreraDTO;
-import com.example.tpintegrador3.DTO.EstudianteDTO;
-import com.example.tpintegrador3.DTO.Estudiante_CarreraDTO;
+import com.example.tpintegrador3.Utils.CSV;
+import com.example.tpintegrador3.Service.DTO.CarreraDTO;
+import com.example.tpintegrador3.Service.DTO.EstudianteDTO;
+import com.example.tpintegrador3.Service.DTO.Estudiante_CarreraDTO;
 import com.example.tpintegrador3.Interfaces.CarreraRepository;
 import com.example.tpintegrador3.Interfaces.EstudianteRepository;
 import com.example.tpintegrador3.Interfaces.Estudiante_CarreraRepository;
@@ -17,14 +17,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-public class Main {
+public class MainSpringBoot {
 
     public static void main(String[] args) {
 
         try {
 
         ///////  Código para borrar las tablas de la base de datos  /////////////////////
-        String url = "jdbc:mysql://localhost:3306/integrador2"; // Cambia esto por la URL de tu base de datos
+        String url = "jdbc:mysql://localhost:3306/integrador3"; // Cambia esto por la URL de tu base de datos
         String usuario = "root"; // Cambia esto por tu nombre de usuario
         String contrasena = ""; // Cambia esto por tu contraseña
 
