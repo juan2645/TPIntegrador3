@@ -1,6 +1,6 @@
 package com.example.tpintegrador3.Repository;
 
-import com.example.tpintegrador3.DTO.CarreraDTO;
+import com.example.tpintegrador3.Service.DTO.CarreraDTO;
 import com.example.tpintegrador3.Entidades.Carrera;
 import com.example.tpintegrador3.Factory.EntityFactory;
 import com.example.tpintegrador3.Interfaces.CarreraRepository;

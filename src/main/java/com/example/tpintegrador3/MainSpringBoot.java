@@ -1,9 +1,9 @@
 package com.example.tpintegrador3;
 
-import com.example.tpintegrador3.CSV.CSV;
-import com.example.tpintegrador3.DTO.CarreraDTO;
-import com.example.tpintegrador3.DTO.EstudianteDTO;
-import com.example.tpintegrador3.DTO.Estudiante_CarreraDTO;
+import com.example.tpintegrador3.Utils.CSV;
+import com.example.tpintegrador3.Service.DTO.CarreraDTO;
+import com.example.tpintegrador3.Service.DTO.EstudianteDTO;
+import com.example.tpintegrador3.Service.DTO.Estudiante_CarreraDTO;
 import com.example.tpintegrador3.Interfaces.CarreraRepository;
 import com.example.tpintegrador3.Interfaces.EstudianteRepository;
 import com.example.tpintegrador3.Interfaces.Estudiante_CarreraRepository;
@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-public class Main {
+public class MainSpringBoot {
 
     public static void main(String[] args) {
 
