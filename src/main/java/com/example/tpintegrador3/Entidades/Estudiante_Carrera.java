@@ -66,6 +66,8 @@ public class Estudiante_Carrera {
         this.graduado = graduado;
     }
 
+
+
     @Override
     public String toString() {
         return "Estudiante_Carrera{" +

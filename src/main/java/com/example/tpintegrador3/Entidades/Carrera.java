@@ -43,7 +43,9 @@ public class Carrera {
         return nombreCarrera;
     }
 
-
+    public List<Estudiante_Carrera> getEstudianteCarrera() {
+        return estudianteCarrera;
+    }
     @Override
     public String toString() {
         return "Carrera{" +
