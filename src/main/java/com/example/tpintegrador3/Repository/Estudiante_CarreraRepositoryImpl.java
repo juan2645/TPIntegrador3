@@ -35,7 +35,7 @@ public class Estudiante_CarreraRepositoryImpl implements Estudiante_CarreraRepos
 			int currentYear = LocalDate.now().getYear();
 
 			TypedQuery<Estudiante_CarreraDTO> query = em.createQuery(
-					"SELECT NEW com.example.tpintegrador3.DTO.Estudiante_CarreraDTO(c.nombreCarrera, ec.antiguedad, " +
+					"SELECT NEW com.example.tpintegrador3.Service.DTO.Estudiante_CarreraDTO(c.nombreCarrera, ec.antiguedad, " +
 							"COUNT(ec), " +
 							"SUM(CASE WHEN ec.graduado = true THEN 1 ELSE 0 END)) " +
 							"FROM Estudiante_Carrera ec " +

@@ -86,7 +86,7 @@ public class CarreraRepositoryImpl implements CarreraRepository {
 
 		try {
 			TypedQuery<CarreraDTO> query = em.createQuery(
-				    "SELECT NEW com.example.tpintegrador2.DTO.CarreraDTO(c.nombreCarrera, COUNT(ec)) " +
+				    "SELECT NEW com.example.tpintegrador3.Service.DTO.CarreraDTO(c.nombreCarrera, COUNT(ec)) " +
 				    " FROM Estudiante_Carrera ec " +
 				    " JOIN ec.carrera c " +
 				    " GROUP BY c.nombreCarrera " +

@@ -172,7 +172,7 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
 
     	try {
 		 TypedQuery<EstudianteDTO> query = em.createQuery(
-			 "SELECT NEW com.example.tpintegrador2.DTO.EstudianteDTO(e.nombre, e.genero, e.ciudadResidencia, e.edad, e.nroDocumento,e.nroLibreta) " +
+			 "SELECT NEW com.example.tpintegrador3.Service.DTO.EstudianteDTO(e.nombre, e.genero, e.ciudadResidencia, e.edad, e.nroDocumento,e.nroLibreta) " +
 			 "FROM Estudiante_Carrera ec " +
 			 "JOIN ec.estudiante e " +
 			 "JOIN ec.carrera c " +

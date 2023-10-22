@@ -43,7 +43,7 @@ public class CSV {
     public void readCSV(String csvCarrera, String csvEstudiante, String csvEstudianteCarrera) {
 
         EntityFactory entityFactory = EntityFactory.getInstance();
-        String path = "src/main/java/com/example/tpintegrador3/CSV/datos";
+        String path = "src/main/java/com/example/tpintegrador3/CSV";
 
         try (EntityManager em = entityFactory.createEntityManager()) {
             EntityTransaction transaction = em.getTransaction();
