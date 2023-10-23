@@ -7,7 +7,7 @@ import com.example.tpintegrador3.Factory.EntityFactory;
 import com.example.tpintegrador3.Factory.FactoryRepository;
 import com.example.tpintegrador3.Factory.FactoryRepositoryImpl;
 import com.example.tpintegrador3.Interfaces.CarreraRepository;
-import com.example.tpintegrador3.Interfaces.EstudianteRepository;
+import com.example.tpintegrador3.Interfaces.ER;
 import com.example.tpintegrador3.Interfaces.Estudiante_CarreraRepository;
 import com.example.tpintegrador3.Repository.CarreraRepositoryImpl;
 import com.example.tpintegrador3.Repository.EstudianteRepositoryImpl;
@@ -26,7 +26,7 @@ public class CSV {
     private List<Estudiante> estudiantes;
     private List<Carrera> carreras;
     private List<Estudiante_Carrera> estudianteCarrera;
-    private EstudianteRepository estudRep;
+    private ER estudRep;
     private CarreraRepository carRep;
     private Estudiante_CarreraRepository estud_CarRep;
 

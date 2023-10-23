@@ -5,7 +5,7 @@ import com.example.tpintegrador3.Service.DTO.CarreraDTO;
 import com.example.tpintegrador3.Service.DTO.EstudianteDTO;
 import com.example.tpintegrador3.Service.DTO.Estudiante_CarreraDTO;
 import com.example.tpintegrador3.Interfaces.CarreraRepository;
-import com.example.tpintegrador3.Interfaces.EstudianteRepository;
+import com.example.tpintegrador3.Interfaces.ER;
 import com.example.tpintegrador3.Interfaces.Estudiante_CarreraRepository;
 import com.example.tpintegrador3.Repository.CarreraRepositoryImpl;
 import com.example.tpintegrador3.Repository.EstudianteRepositoryImpl;
@@ -47,7 +47,7 @@ public class MainSpringBoot {
 
         CSV csv = new CSV();
         csv.readCSV("carreras.csv", "estudiantes.csv","estudianteCarrera.csv");
-        EstudianteRepository estudianteRepository = new EstudianteRepositoryImpl();
+        ER estudianteRepository = new EstudianteRepositoryImpl();
         CarreraRepository carreraRepository = new CarreraRepositoryImpl();
 
         // a) Dar de alta un estudiante

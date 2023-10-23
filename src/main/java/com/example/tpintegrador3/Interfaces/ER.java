@@ -5,7 +5,7 @@ import com.example.tpintegrador3.Entidades.Estudiante;
 
 import java.util.List;
 
-public interface EstudianteRepository {
+public interface ER {
 
     void altaEstudiante(String nombre, String apellido, int edad, String genero, int nroDocumento,
                         String ciudadResidencia, int nroLibreta);

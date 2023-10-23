@@ -1,5 +1,6 @@
 package com.example.tpintegrador3.Entidades;
 
+import com.example.tpintegrador3.Service.DTO.Carrera.Request.CarreraRequestDTO;
 import jakarta.persistence.*;
 
 import java.util.LinkedList;
@@ -19,6 +20,11 @@ public class Carrera {
     public Carrera() {
 
         super();
+    }
+
+    public Carrera(CarreraRequestDTO request) {
+        this.nombreCarrera = request.getNombre();
+        this.estudianteCarrera = new LinkedList<>();
     }
 
     public Carrera(String nombreCarrera) {

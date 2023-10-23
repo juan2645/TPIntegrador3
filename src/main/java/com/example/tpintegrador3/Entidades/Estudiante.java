@@ -1,6 +1,7 @@
 
 package com.example.tpintegrador3.Entidades;
 
+import com.example.tpintegrador3.Service.DTO.Estudiante.Request.EstudianteRequestDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -47,6 +48,19 @@ public class Estudiante {
     }
 
     public Estudiante() {
+
+    }
+
+    public Estudiante(EstudianteRequestDTO request) {
+        //tomo los datos hasta el espacio
+        this.nombre = request.getFullName().split(" ")[0];
+        //tomo los datos desde el espacio
+        this.apellido = request.getFullName().split(" ")[1];
+        this.edad = request.getEdad();
+        this.genero = request.getGenero();
+        this.nroDocumento = request.getNroDocumento();
+        this.ciudadResidencia = request.getCiudadResidencia();
+        this.nroLibreta = request.getNroLibreta();
 
     }
 
