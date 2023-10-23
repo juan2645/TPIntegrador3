@@ -27,30 +27,25 @@ public class CarreraController {
         return carrera;
     }
 
-
     @RequestMapping("/search")
     public List<CarreraResponseDTO> search(CarreraRequestDTO request) {
-        List<CarreraResponseDTO> carreras = carreraService.search(request);
-        return carreras;
+
+        return carreraService.search(request);
     }
+
+
 
     @RequestMapping("/save")
     public CarreraResponseDTO save(CarreraRequestDTO request) {
+
         return carreraService.save(request);
     }
 
+    @RequestMapping("/carrerasWithEstudiantes")
+    public List<CarreraResponseDTO> carrerasWithEstudiantes() {
 
-
-
-    @RequestMapping("/luckyCarrera")
-    public CarreraResponseDTO luckyCarrera() {
-        return carreraService.luckyCarrera();
+        return carreraService.carrerasWithEstudiantes();
     }
 
 
-/*
-    public Usuario getUsuarioById(@PathVariable String id) {
-        int _id = Integer.valueOf(id);
-        Usuario usuario = usuarioService.findById(_id);
-        return usuario; }*/
 }

@@ -10,10 +10,6 @@ import java.util.List;
 
 public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
 /*
-a) dar de alta un estudiante
-b) matricular un estudiante en una carrera
-c) recuperar todos los estudiantes, y especificar algún criterio de ordenamiento simple.
-d) recuperar un estudiante, en base a su número de libreta universitaria.
  */
 
 //c) recuperar todos los estudiantes, y especificar algún criterio de ordenamiento simple.
@@ -34,14 +30,7 @@ d) recuperar un estudiante, en base a su número de libreta universitaria.
 
     //g) recuperar los estudiantes de una determinada carrera, filtrado por ciudad de residencia
 
-    /*
-     "e.nombre, e.genero, e.ciudadResidencia, e.edad, e.nroDocumento,e.nroLibreta" +
-			 "FROM Estudiante_Carrera ec " +
-			 "JOIN ec.estudiante e " +
-			 "JOIN ec.carrera c " +
-			 "WHERE c.nombreCarrera = :nombreCarrera " +
-			 "AND e.ciudadResidencia = :ciudadResidencia"
-     */
+
     @Query("SELECT ec.estudiante " +
             "FROM Estudiante_Carrera ec " +
             "JOIN ec.estudiante e " +
@@ -50,5 +39,8 @@ d) recuperar un estudiante, en base a su número de libreta universitaria.
             "AND e.ciudadResidencia = :ciudadResidencia")
     List<Estudiante> findEstudiantesByCarreraAndCiudad(@Param("nombreCarrera") String nombreCarrera, @Param("ciudadResidencia") String ciudadResidencia);
 
-    Collection<Object> search(String fullName, String genero, String ciudadResidencia, int edad);
+    //Find by id
+    @Query("SELECT e FROM Estudiante e WHERE e.idEstudiante = :id")
+    public List<Estudiante> findById(int id);
+
 }

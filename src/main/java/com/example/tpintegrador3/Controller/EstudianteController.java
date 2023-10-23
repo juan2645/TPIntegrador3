@@ -26,9 +26,34 @@ public class EstudianteController {
         return estudiante;
     }
 
-    @RequestMapping("/search")
-    public List<EstudianteResponseDTO> search(EstudianteRequestDTO request) {
-        List<EstudianteResponseDTO> estudiantes = estudianteService.search(request);
+    @RequestMapping("/save")
+    public EstudianteResponseDTO save(EstudianteRequestDTO request) {
+        EstudianteResponseDTO estudiante = estudianteService.save(request);
+        return estudiante;
+    }
+
+    @RequestMapping("/findAllOrderByName")
+    public List<EstudianteResponseDTO> findAllOrderByName() {
+        List<EstudianteResponseDTO> estudiantes = estudianteService.findAllOrderByName();
+        return estudiantes;
+    }
+
+    @RequestMapping("/findByGenero/{genero}")
+    public List<EstudianteResponseDTO> findByGenero(String genero) {
+        List<EstudianteResponseDTO> estudiantes = estudianteService.findByGenero(genero);
+        return estudiantes;
+    }
+
+    @RequestMapping("/findByNroLibreta/{nroLibreta}")
+    public EstudianteResponseDTO findByNroLibreta(String nroLibreta) {
+        int _nroLibreta = Integer.valueOf(nroLibreta);
+        EstudianteResponseDTO estudiante = estudianteService.findByNroLibreta(_nroLibreta);
+        return estudiante;
+    }
+
+    @RequestMapping("/findEstudiantesByCarreraAndCiudad/{nombreCarrera}/{ciudadResidencia}")
+    public List<EstudianteResponseDTO> findEstudiantesByCarreraAndCiudad(String nombreCarrera, String ciudadResidencia) {
+        List<EstudianteResponseDTO> estudiantes = estudianteService.findEstudiantesByCarreraAndCiudad(nombreCarrera,ciudadResidencia);
         return estudiantes;
     }
 
