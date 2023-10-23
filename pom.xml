@@ -91,7 +91,6 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
         </dependency>
-
     </dependencies>
 
     <build>
