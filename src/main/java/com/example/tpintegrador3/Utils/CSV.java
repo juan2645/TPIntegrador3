@@ -6,22 +6,23 @@ import com.example.tpintegrador3.Entidades.Estudiante_Carrera;
 import com.example.tpintegrador3.Factory.EntityFactory;
 import com.example.tpintegrador3.Factory.FactoryRepository;
 import com.example.tpintegrador3.Factory.FactoryRepositoryImpl;
-import com.example.tpintegrador3.Interfaces.CarreraRepository;
-import com.example.tpintegrador3.Interfaces.EstudianteRepository;
-import com.example.tpintegrador3.Interfaces.Estudiante_CarreraRepository;
-import com.example.tpintegrador3.Repository.CarreraRepositoryImpl;
-import com.example.tpintegrador3.Repository.EstudianteRepositoryImpl;
-import com.example.tpintegrador3.Repository.Estudiante_CarreraRepositoryImpl;
+import com.example.tpintegrador3.Repository.CarreraRepository;
+import com.example.tpintegrador3.Repository.EstudianteRepository;
+import com.example.tpintegrador3.Repository.Estudiante_CarreraRepository;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.FileReader;
 import java.util.LinkedList;
 import java.util.List;
 
+@Component
 public class CSV {
     private List<Estudiante> estudiantes;
     private List<Carrera> carreras;
@@ -30,13 +31,14 @@ public class CSV {
     private CarreraRepository carRep;
     private Estudiante_CarreraRepository estud_CarRep;
 
+    @Autowired
     public CSV(){
         this.estudiantes = new LinkedList<>();
         this.carreras = new LinkedList<>();
         this.estudianteCarrera = new LinkedList<>();
-        this.estudRep = new EstudianteRepositoryImpl();
-        this.carRep = new CarreraRepositoryImpl();
-        this.estud_CarRep = new Estudiante_CarreraRepositoryImpl();
+        this.estudRep = EstudianteRepository();
+        this.carRep = CarreraRepository();
+        this.estud_CarRep = Estudiante_CarreraRepository();
     }
 
 

@@ -5,7 +5,7 @@ import com.example.tpintegrador3.Entidades.Carrera;
 import com.example.tpintegrador3.Entidades.Estudiante;
 import com.example.tpintegrador3.Entidades.Estudiante_Carrera;
 import com.example.tpintegrador3.Factory.EntityFactory;
-import com.example.tpintegrador3.Interfaces.EstudianteRepository;
+import com.example.tpintegrador3.Interfaces.ER;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
@@ -13,7 +13,7 @@ import jakarta.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EstudianteRepositoryImpl implements EstudianteRepository {
+public class EstudianteRepositoryImpl implements ER {
 	
 	@Override
 	public void altaEstudiante(String nombre, String apellido, int edad, String genero, int nroDocumento, String ciudadResidencia, int nroLibreta) {

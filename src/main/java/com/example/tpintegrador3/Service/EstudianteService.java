@@ -1,32 +1,84 @@
 package com.example.tpintegrador3.Service;
 
+import com.example.tpintegrador3.Entidades.Estudiante;
+import com.example.tpintegrador3.Repository.EstudianteRepository;
 import com.example.tpintegrador3.Service.DTO.Estudiante.Request.EstudianteRequestDTO;
 import com.example.tpintegrador3.Service.DTO.Estudiante.Response.EstudianteResponseDTO;
+import org.springframework.transaction.annotation.Transactional;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
+@RequiredArgsConstructor
 public class EstudianteService {
+    @Autowired
+    private EstudianteRepository estudianteRepository;
+
+    @Transactional(readOnly = true)
     public List<EstudianteResponseDTO> findAll() {
-        return null;
+
+
+        return this.estudianteRepository.findAll().stream().map(EstudianteResponseDTO::new).toList();
+
+
     }
 
+
+    @Transactional(readOnly = true)
     public EstudianteResponseDTO findById(Long id) {
-        return null;
+
+        return this.estudianteRepository.findById(id).map(EstudianteResponseDTO::new).orElse(null);
+
+
     }
 
-    public List<EstudianteResponseDTO> search(EstudianteRequestDTO request) {
-        return null;
+    @Transactional
+    public EstudianteResponseDTO save(EstudianteRequestDTO request) {
+        final var estudiante = new Estudiante(request);
+        final var result = this.estudianteRepository.save(estudiante);
+        return new EstudianteResponseDTO(result);
+
     }
 
-    public Object save(EstudianteRequestDTO request) {
-        return null;
+    @Transactional(readOnly = true)
+    public List<EstudianteResponseDTO> findAllOrderByName() {
+
+        return this.estudianteRepository.findAllOrderByName().stream().map(EstudianteResponseDTO::new).toList();
+
     }
 
-    public EstudianteResponseDTO luckyStudent() {
-        return null;
+    @Transactional(readOnly = true)
+    public List<EstudianteResponseDTO> findByGenero(String genero) {
+
+        return this.estudianteRepository.findByGenero(genero).stream().map(EstudianteResponseDTO::new).toList();
+
     }
 
-    public List<EstudianteResponseDTO> bestStudents() {
-        return null;
+    //d) recuperar un estudiante, en base a su número de libreta universitaria.
+    @Transactional(readOnly = true)
+    public EstudianteResponseDTO findByNroLibreta(int nroLibreta) {
+
+        return this.estudianteRepository.findByNroLibreta(nroLibreta).stream().map(EstudianteResponseDTO::new).findFirst().orElse(null) ;
+
     }
+    //findEstudiantesByCarreraAndCiudad
+    @Transactional(readOnly = true)
+    public List<EstudianteResponseDTO> findEstudiantesByCarreraAndCiudad(String nombreCarrera, String ciudadResidencia) {
+
+        return this.estudianteRepository.findEstudiantesByCarreraAndCiudad(nombreCarrera,ciudadResidencia).stream().map(EstudianteResponseDTO::new).toList();
+
+    }
+
+    //b) matricular un estudiante en una carrera
+    @Transactional
+    public EstudianteResponseDTO matEstudianteCarrera(EstudianteRequestDTO request) {
+        final var estudiante = new Estudiante(request);
+        final var result = this.estudianteRepository.save(estudiante);
+        return new EstudianteResponseDTO(result);
+
+    }
+
+
 }

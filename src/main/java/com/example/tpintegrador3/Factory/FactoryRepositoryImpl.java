@@ -1,7 +1,7 @@
 package com.example.tpintegrador3.Factory;
 
 import com.example.tpintegrador3.Interfaces.CarreraRepository;
-import com.example.tpintegrador3.Interfaces.EstudianteRepository;
+import com.example.tpintegrador3.Interfaces.ER;
 import com.example.tpintegrador3.Interfaces.Estudiante_CarreraRepository;
 import com.example.tpintegrador3.Repository.CarreraRepositoryImpl;
 import com.example.tpintegrador3.Repository.EstudianteRepositoryImpl;
@@ -9,7 +9,7 @@ import com.example.tpintegrador3.Repository.Estudiante_CarreraRepositoryImpl;
 
 public class FactoryRepositoryImpl implements FactoryRepository {
 	private static FactoryRepositoryImpl fri;
-	private final EstudianteRepository er;
+	private final ER er;
 	private final CarreraRepository cr;
 	private final Estudiante_CarreraRepository ecr;
 	
@@ -30,7 +30,7 @@ public class FactoryRepositoryImpl implements FactoryRepository {
 	}
 
 	@Override
-	public EstudianteRepository getEstudianteRepository() {
+	public ER getEstudianteRepository() {
 
 		return er;
 	}
