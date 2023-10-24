@@ -12,7 +12,7 @@ public class CarreraResponseDTO {
     private int cantEstudiante;
 
     public CarreraResponseDTO(Carrera c){
-        this.nombre = c.getNombreCarrera();
+        this.nombre = c.getNombre();
         this.cantEstudiante = c.getEstudianteCarrera().size();
     }
 

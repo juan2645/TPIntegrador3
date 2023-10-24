@@ -32,10 +32,7 @@ public class CarreraResource {
         return this.carreraService.search( request );
     }
 
-    @GetMapping("/bests")
-    public List<CarreraResponseDTO> bestCarreras(){
-        return this.carreraService.bestCarreras();
-    }
+
 
     @PostMapping("")
     public ResponseEntity<CarreraResponseDTO> save(@RequestBody @Valid CarreraRequestDTO request ){
@@ -43,8 +40,5 @@ public class CarreraResource {
         return ResponseEntity.accepted().body((CarreraResponseDTO) result);
     }
 
-    @GetMapping("/lucky")
-    public CarreraResponseDTO luckyCarrera(){
-        return this.carreraService.luckyCarrera();
-    }
+
 }

@@ -2,7 +2,6 @@ package com.example.tpintegrador3.Service;
 
 import com.example.tpintegrador3.Entidades.Carrera;
 import com.example.tpintegrador3.Repository.CarreraRepository;
-import com.example.tpintegrador3.Repository.CarreraRepositoryImpl;
 import com.example.tpintegrador3.Service.DTO.Carrera.Request.CarreraRequestDTO;
 import com.example.tpintegrador3.Service.DTO.Carrera.Response.CarreraResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +27,7 @@ public class CarreraService {
     public CarreraResponseDTO findById(Long id) {
 
             return this.carreraRepository.findById(id).map(CarreraResponseDTO::new).orElse(null);
+
 
 
 

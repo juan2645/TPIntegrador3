@@ -41,6 +41,6 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
 
     //Find by id
     @Query("SELECT e FROM Estudiante e WHERE e.idEstudiante = :id")
-    public List<Estudiante> findById(int id);
+    public Estudiante findById(int id);
 
 }

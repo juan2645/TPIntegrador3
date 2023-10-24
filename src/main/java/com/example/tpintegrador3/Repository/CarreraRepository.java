@@ -22,5 +22,9 @@ public interface CarreraRepository  extends JpaRepository<Carrera, Long> {
     List<Carrera> carrerasWithEstudiantes();
 
 
+
+    //buscar por id
+    @Query("SELECT c FROM Carrera c WHERE c.idCarrera = :id")
+    Carrera findById(int idCarrera);
 }
 

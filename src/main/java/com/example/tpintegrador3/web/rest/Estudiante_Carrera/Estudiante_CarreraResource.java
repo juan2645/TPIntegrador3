@@ -18,7 +18,7 @@ import java.util.List;
 public class Estudiante_CarreraResource {
 
     private final Estudiante_CarreraService estudiante_carreraService;
-
+/*
     @GetMapping("")
     public List<Estudiante_CarreraResponseDTO> findAll(){
         return this.estudiante_carreraService.findAll();
@@ -48,5 +48,5 @@ public class Estudiante_CarreraResource {
     @GetMapping("/lucky")
     public Estudiante_CarreraResponseDTO luckyStudent_Carrera(){
         return this.estudiante_carreraService.luckyStudent_Carrera();
-    }
+    }*/
 }

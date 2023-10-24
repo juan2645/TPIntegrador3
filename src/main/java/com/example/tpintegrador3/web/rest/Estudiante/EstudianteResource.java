@@ -27,15 +27,8 @@ public class EstudianteResource {
         return this.estudianteService.findById( id );
     }
 
-    @GetMapping("/search")
-    public List<EstudianteResponseDTO> findById( EstudianteRequestDTO request ){
-        return this.estudianteService.search( request );
-    }
 
-    @GetMapping("/bests")
-    public List<EstudianteResponseDTO> bestStudents(){
-        return this.estudianteService.bestStudents();
-    }
+
 
     @PostMapping("")
     public ResponseEntity<EstudianteResponseDTO> save(@RequestBody @Valid EstudianteRequestDTO request ){
@@ -43,9 +36,5 @@ public class EstudianteResource {
         return ResponseEntity.accepted().body((EstudianteResponseDTO) result);
     }
 
-    @GetMapping("/lucky")
-    public EstudianteResponseDTO luckyStudent(){
-        return this.estudianteService.luckyStudent();
-    }
-}
 
+}

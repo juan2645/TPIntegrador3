@@ -45,7 +45,12 @@ public class Carrera {
         this.idCarrera = idCarrera;
     }
 
-    public String getNombreCarrera() {
+    public void setNombreCarrera(String nombreCarrera) {
+        this.nombreCarrera = nombreCarrera;
+    }
+
+
+    public String getNombre() {
         return nombreCarrera;
     }
 
