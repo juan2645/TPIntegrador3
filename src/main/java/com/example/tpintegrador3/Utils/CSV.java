@@ -6,7 +6,7 @@ import com.example.tpintegrador3.Entidades.Estudiante_Carrera;
 
 import com.example.tpintegrador3.Repository.CarreraRepository;
 import com.example.tpintegrador3.Repository.EstudianteRepository;
-import com.example.tpintegrador3.Repository.Estudiante_CarreraRepository;
+//import com.example.tpintegrador3.Repository.Estudiante_CarreraRepository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -28,26 +28,26 @@ import java.util.List;
 public class CSV {
     private List<Estudiante> estudiantes;
     private List<Carrera> carreras;
-    private List<Estudiante_Carrera> estudianteCarrera;
+   // private List<Estudiante_Carrera> estudianteCarrera;
     private EstudianteRepository estudRep;
     private CarreraRepository carRep;
-    private Estudiante_CarreraRepository estud_CarRep;
+   // private Estudiante_CarreraRepository estud_CarRep;
 
     @Autowired
-    public CSV(EstudianteRepository estudianteRepository, CarreraRepository carreraRepository, Estudiante_CarreraRepository estudiante_CarreraRepository ){
+    public CSV(EstudianteRepository estudianteRepository, CarreraRepository carreraRepository){
         this.estudiantes = new LinkedList<>();
         this.carreras = new LinkedList<>();
-        this.estudianteCarrera = new LinkedList<>();
+        //this.estudianteCarrera = new LinkedList<>();
         this.estudRep = estudianteRepository;
         this.carRep = carreraRepository;
-        this.estud_CarRep = estudiante_CarreraRepository;
+    //    this.estud_CarRep = estudiante_CarreraRepository;
     }
 
 
     public void readCSV() throws IOException {
         File csvEstudiante = ResourceUtils.getFile("src/main/java/com/example/tpintegrador3/CSV/estudiantes.csv");
         File csvCarrera = ResourceUtils.getFile("src/main/java/com/example/tpintegrador3/CSV/carreras.csv");
-        File csvEstudianteCarrera = ResourceUtils.getFile("src/main/java/com/example/tpintegrador3/CSV/estudiante_carrera.csv");
+       // File csvEstudianteCarrera = ResourceUtils.getFile("src/main/java/com/example/tpintegrador3/CSV/estudiante_carrera.csv");
 
         try(FileReader reader = new FileReader(csvEstudiante);
             CSVParser csvParser = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(reader)){
@@ -62,7 +62,7 @@ public class CSV {
                     estudiante.setNroDocumento(Integer.parseInt(csvRecord.get("nroDocumento")));
                     estudiante.setCiudadResidencia(csvRecord.get("ciudadResidencia"));
                     estudiante.setNroLibreta(Integer.parseInt(csvRecord.get("nroLibreta")));
-                    estudiantes.add(estudiante);
+                    estudRep.save(estudiante);
                 }
             }
         }
@@ -74,14 +74,12 @@ public class CSV {
                 if (csvRecord.size() == 2 ){ //id,nombreCarrera
                     Carrera carrera = new Carrera();
                     carrera.setNombreCarrera(csvRecord.get("nombreCarrera"));
-                    carreras.add(carrera);
+                    carRep.save(carrera);
                 }
-                Carrera carrera = new Carrera();
-                carrera.setNombreCarrera(csvRecord.get("nombreCarrera"));
-                carreras.add(carrera);
+
             }
         }
-
+        /*
         try(FileReader reader = new FileReader(csvEstudianteCarrera);
             CSVParser csvParser = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(reader)){
             for(CSVRecord csvRecord : csvParser){
@@ -90,7 +88,6 @@ public class CSV {
                     Long idCarrera = Long.valueOf(csvRecord.get("idCarrera"));
                     int antiguedad = Integer.parseInt(csvRecord.get("antiguedad"));
                     boolean graduado = Boolean.parseBoolean(csvRecord.get("graduado"));
-                 */
 
 
                     Estudiante_Carrera estudiante_carrera = new Estudiante_Carrera();
@@ -103,60 +100,10 @@ public class CSV {
                 }
 
             }
-        }
-
-        /*
-        EntityFactory entityFactory = EntityFactory.getInstance();
-        String path = "src/main/java/com/example/tpintegrador3/CSV";
-
-        try (EntityManager em = entityFactory.createEntityManager()) {
-            EntityTransaction transaction = em.getTransaction();
-            transaction.begin();
-            FactoryRepository fr = FactoryRepositoryImpl.getInstancia();
-
-            // lectura CSV Estudiante
-            String csvDir = path + "/" + csvEstudiante;
-            CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvDir));
-
-            for (CSVRecord row : parser) {
-                fr.getEstudianteRepository().altaEstudiante(row.get("nombre"), row.get("apellido"), Integer.parseInt(row.get("edad")),
-                        row.get("genero"), Integer.parseInt(row.get("nroDocumento")), row.get("ciudadResidencia"),
-                        Integer.parseInt(row.get("nroLibreta")));
-            }
-
-            // lectura CSV Carrera
-            String csvDirC = path + "/" + csvCarrera;
-            CSVParser parserC = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvDirC));
-
-            for (CSVRecord row : parserC) {
-                fr.getCarreraRepository().altaCarreras(row.get("nombreCarrera"));
-            }
+        }*/
 
 
-            // lectura CSV EstudianteCarrera
-            String csvEstCar= path + "/" + csvEstudianteCarrera;
-            CSVParser parserEc = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvEstCar));
 
-            for (CSVRecord row : parserEc) {
-                int idEstudiante = Integer.parseInt(row.get("idEstudiante"));
-                int idCarrera = Integer.parseInt(row.get("idCarrera"));
-                int antiguedad = Integer.parseInt(row.get("antiguedad"));
-                boolean graduado = Boolean.parseBoolean(row.get("graduado"));
-
-                System.err.println(idEstudiante+" "+idCarrera+" "+antiguedad+" "+graduado);
-
-                Estudiante estudiante = fr.getEstudianteRepository().getEstudianteById(idEstudiante);
-                Carrera carrera = fr.getCarreraRepository().getCarreraById(idCarrera);
-
-                fr.getEstudiante_CarreraRepository().altaMatricula(estudiante, carrera, antiguedad,graduado);
-
-            }
-
-            transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        */
 
     }
 

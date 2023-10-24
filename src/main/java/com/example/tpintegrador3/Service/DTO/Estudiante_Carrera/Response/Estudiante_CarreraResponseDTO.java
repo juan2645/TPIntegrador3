@@ -1,27 +1,27 @@
-package com.example.tpintegrador3.Service.DTO.Estudiante_Carrera.Response;
-
-
-import com.example.tpintegrador3.Entidades.Estudiante_Carrera;
-import com.example.tpintegrador3.Repository.Estudiante_CarreraRepository;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
-
-@Data
-@RequiredArgsConstructor
-public class Estudiante_CarreraResponseDTO {
-
-        private final String nombreCarrera;
-        private final int year;
-        private final int inscriptos;
-        private final long egresados;
-
-        public Estudiante_CarreraResponseDTO( Estudiante_Carrera ec ) {
-            this.nombreCarrera = ec.getCarrera().getNombre();
-            this.year = ec.getAntiguedad();
-            this.inscriptos = ec.getCarrera().getEstudianteCarrera().size();
-            //  esto es para contar los egresados
-            this.egresados = ec.getCarrera().getEstudianteCarrera().stream().filter(e -> e.isGraduado()).count();
-        }
-
-
-}
+//package com.example.tpintegrador3.Service.DTO.Estudiante_Carrera.Response;
+//
+//
+//import com.example.tpintegrador3.Entidades.Estudiante_Carrera;
+//import com.example.tpintegrador3.Repository.Estudiante_CarreraRepository;
+//import lombok.Data;
+//import lombok.RequiredArgsConstructor;
+//
+//@Data
+//@RequiredArgsConstructor
+//public class Estudiante_CarreraResponseDTO {
+//
+//        private final String nombreCarrera;
+//        private final int year;
+//        private final int inscriptos;
+//        private final long egresados;
+//
+//        public Estudiante_CarreraResponseDTO( Estudiante_Carrera ec ) {
+//            this.nombreCarrera = ec.getCarrera().getNombre();
+//            this.year = ec.getAntiguedad();
+//            this.inscriptos = ec.getCarrera().getEstudianteCarrera().size();
+//            //  esto es para contar los egresados
+//            this.egresados = ec.getCarrera().getEstudianteCarrera().stream().filter(e -> e.isGraduado()).count();
+//        }
+//
+//
+//}
